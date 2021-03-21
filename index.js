@@ -22,7 +22,7 @@ const rotateForward = function(){
             setTimeout(function(){
                 item.addClass('toBack');
                 item.removeClass('toFront');
-            }, 300);
+            }, 400);
             
         } else if (item.hasClass('toMiddle')){
             setTimeout(function(){
@@ -68,7 +68,7 @@ const rotateBackwards = function(){
             setTimeout(function(){
                 item.addClass('toFront');
             item.removeClass('toBack');
-            }, 300);
+            }, 400);
         }
     });   
 };
