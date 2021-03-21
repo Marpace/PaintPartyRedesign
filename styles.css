@@ -66,29 +66,36 @@ body {
     border: none;
 }
 
-.toBack {
-    top: 20px;
-    left: 60px;
-    opacity: 1;
-    z-index: 1;
+
+
+.fade {
+    opacity: 0;
+    top: 250px;
     transition: .3s;
 }
+
+
 
 .toFront {
     top: 60px;
     left: 100px;
     z-index: 3;
-    transition: .3s;
+    transition: z-index .5s, top .3s, left .3s;
 }
 
 .toMiddle {
     top: 40px;
     left: 80px;
     z-index: 2;
-    transition: .3s;
+    transition: z-index .5s, top .3s, left .3s;
 }
 
-
+.toBack {
+    top: 20px;
+    left: 60px;
+    z-index: 1;
+    transition: z-index .5s, top .3s, left .3s;
+}
 
 .selectors {
     padding-top: 50px;
