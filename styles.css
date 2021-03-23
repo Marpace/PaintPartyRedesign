@@ -6,7 +6,111 @@ body {
     margin: 0;
     padding: 0;
 }
+/* *****************  ALERT  ************************** */
+#alert{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(48, 48, 48);
+}
 
+#alert h5 {
+    color: white;
+    font-weight: lighter;
+}
+
+
+/* *************** NAVBAR **************************** */
+
+#navbar-toggler {
+    display: none;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5rem;
+    height: 70px;
+    font-size: 1rem;
+    background-color: rgb(196, 196, 196);
+}
+
+
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(78, 78, 78);
+    margin: 0 10px;
+    position: relative;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: black;
+}
+
+nav a,
+nav a:after,
+nav a:before {
+  transition: all .3s;
+}
+
+nav a:after {
+    position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: rgb(10, 10, 10);
+  height: 1px;
+}
+
+nav a:hover:after {
+    width: 100%;
+  }
+
+/* ***************  HERO  *************************** */
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    background-color: rgb(78, 78, 78);
+    padding-left: 5rem;
+    justify-content: center;
+}
+#hero-text {
+    width: 60%;
+}
+
+#hero-text h1 {
+    font-size: 2.2rem;
+    color: rgb(212, 212, 212);
+    font-weight: lighter;
+}    
+
+#hero div button{
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-top: 50px;
+    background-color: rgb(184, 184, 184);
+    border: none;
+}
+
+
+/* **************  CARDS SECTION ************************ */
 
 .wrap {
     padding-top: 5rem;
@@ -19,10 +123,11 @@ body {
     background-color: rgb(172, 171, 171);
 }
 
+/* ************ CARDS **************** */
 .cards {
     position: relative;
     height: 400px;
-    width: 400px;
+    width: 450px;
 }
 .item { 
     position: absolute;
@@ -42,6 +147,28 @@ body {
     background-color: rgb(63, 63, 63);
 }
 
+.toFront {
+    top: 60px;
+    left: 80px;
+    z-index: 3;
+    transition: z-index .5s, top .3s, left .3s;
+}
+
+.toMiddle {
+    top: 40px;
+    left: 60px;
+    z-index: 2;
+    transition: z-index .5s, top .3s, left .3s;
+}
+
+.toBack {
+    top: 20px;
+    left: 40px;
+    z-index: 1;
+    transition: z-index .5s, top .3s, left .3s;
+}
+
+/* ************* CONTROLS ****************** */
 .controls {
     width: 350px;
     text-align: center;
@@ -66,37 +193,6 @@ body {
     border: none;
 }
 
-
-
-.fade {
-    opacity: 0;
-    top: 250px;
-    transition: .3s;
-}
-
-
-
-.toFront {
-    top: 60px;
-    left: 100px;
-    z-index: 3;
-    transition: z-index .5s, top .3s, left .3s;
-}
-
-.toMiddle {
-    top: 40px;
-    left: 80px;
-    z-index: 2;
-    transition: z-index .5s, top .3s, left .3s;
-}
-
-.toBack {
-    top: 20px;
-    left: 60px;
-    z-index: 1;
-    transition: z-index .5s, top .3s, left .3s;
-}
-
 .selectors {
     padding-top: 50px;
    text-align: center;
@@ -106,4 +202,67 @@ body {
     width: 50px;
 }
 
+/* *************  MEDIA QUERIES  *********************** */
+
+@media screen and (max-width: 568px) {
+    /* ******************  NAVBAR  ********************** */
+    #navbar-toggler {
+        display: block;
+        align-self: flex-end;
+        margin-right: 30px;
+        padding: 0 3px;
+        height: 40px;
+        width: 40px;
+    
+    }
+
+    #navbar-toggler div {
+        width: 90%;
+        height: 4px;
+        margin: 5px auto;
+        border-radius: 2px;
+        background: rgb(97, 96, 96);
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+        padding: 20px 0;
+    }
+
+    nav li {
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    /* ******************  HERO  **************************** */
+    #hero {
+        align-items: center;
+        padding-left: 0;
+    }
+    #hero-text {
+        width: 90%;
+    }
+    
+    #hero-text h1 {
+        font-size: 2.2rem;
+        color: rgb(212, 212, 212);
+        font-weight: lighter;
+    }    
+    
+    #hero div button{
+        padding: 20px;
+        font-size: 1rem;
+        font-weight: bolder;
+        margin-top: 50px;
+        background-color: rgb(184, 184, 184);
+        border: none;
+    }
+}
 
