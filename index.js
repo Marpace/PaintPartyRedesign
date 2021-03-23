@@ -110,3 +110,12 @@ selector3.click(function(){
         rotateBackwards();
     }
 });
+
+const toggler = $('#navbar-toggler');
+const navList = $('nav ul');
+
+toggler.click(() => {
+    navList.slideToggle();
+    navList.css("display", "block");
+});
+
