@@ -5,26 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script
+    src="https://kit.fontawesome.com/da7d263600.js"
+    crossorigin="anonymous"
+  ></script>
     <title>Document</title>
 </head>
 <body>
-    
-  <!-- ***************  ALERT  ************************* -->
+    <!-- ***************  ALERT  ************************* -->
     <section id="alert">
-        <h5>Our services are limited due to current lockdown restrictions.</h5>
+        <i class="fas fa-exclamation-circle"></i><h5>Our services are limited due to current lockdown restrictions.</h5>
     </section>
     <!-- ***************  NAVBAR  ******************* -->
     <nav>
-        <button id="navbar-toggler">
+        <div id="nav-brand"></div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Who we are</a></li>
+            <li><a href="">Photo gallery</a></li>
+        </ul>
+        <div id="navbar-toggler">
             <div></div>
             <div></div>
             <div></div>
-        </button>
-       <ul>
-           <li><a href="">Home</a></li>
-           <li><a href="">Who we are</a></li>
-           <li><a href="">Photo gallery</a></li>
-       </ul>
+        </div>
     </nav>
 
 <!-- ********************  HERO  ******************** -->
@@ -36,23 +42,45 @@
             <button>Book your event</button>
         </div>
     </section>
-
+<!-- *****************  CARDS  ***************************** -->
     <div class="wrap">
         <div class="cards">
-            <div class="item3 item toBack"><h1>3</h1></div>
-            <div class="item2 item toMiddle"><h1>2</h1></div>
-            <div class="item1 item toFront"><h1>1</h1></div>
+            <div class="item3 item"><h1></h1></div>
+            <div class="item2 item"><h1></h1></div>
+            <div class="item1 item"><h1></h1></div>
         </div>
-        <div class="controls"> 
-            <button class="triggerPrevious">Previous</button>
-            <button class="triggerNext">Next</button>
-            <div class="selectors">
-                <button class="select" id="selector-1">1</button>
-                <button class="select" id="selector-2">2</button>
-                <button class="select" id="selector-3">3</button>
+        <div class="cards-text">             
+            <div id="text-wrap">
+                <div class="cards-titles textHidden" id="cards-text-1">
+                    <h3>Services</h3>
+                    <h1>Private paint parties</h1>
+                
+                    <p>Book a private paint party at our studio or in your home/venue to celebrate any event such as birthdays, bachelorette parties, tea parties, children’s birthday parties, corporate events and more!</p>
+                    <button>Learn more</button>
+                </div>
+                <div class="cards-titles textHidden" id="cards-text-2">
+                    <h3>Services</h3>
+                    <h1>Our paint night</h1>
+                
+                    <p>Join us at one of our paint night events held ar Wild Wing resraurant. A great date night or girls night out idea!</p>
+                    <button>Learn more</button>
+                </div>
+                <div class="cards-titles textHidden" id="cards-text-3">
+                    <h3>Services</h3>
+                    <h1>Paint kits</h1>
+                
+                    <p>Buy a paint kit and have a paint party experience in the comfort of your own home!</p>
+                    <button>Learn more</button>
+                </div>   
+            </div>       
+            <div class="selectors-div">
+                <div class="select selector-active" id="selector-1">1</div>
+                <div class="select" id="selector-2">2</div>
+                <div class="select" id="selector-3">3</div>
             </div>
         </div>
     </div> 
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="index.js"></script>
