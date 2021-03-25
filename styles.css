@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -20,8 +20,22 @@ body {
     font-weight: lighter;
 }
 
+#alert i {
+    color: white;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
 
 /* *************** NAVBAR **************************** */
+
+#nav-brand {
+
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    background-color: grey;
+}
 
 #navbar-toggler {
     display: none;
@@ -31,15 +45,17 @@ nav {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding-right: 5rem;
+    padding:0 5rem 0 5rem;
     height: 70px;
     font-size: 1rem;
     background-color: rgb(196, 196, 196);
 }
 
-
+/* nav ul {
+    justify-self: flex-end;
+} */
 
 nav li {
     display: inline;
@@ -113,69 +129,111 @@ nav a:hover:after {
 /* **************  CARDS SECTION ************************ */
 
 .wrap {
-    padding-top: 5rem;
+    padding: 5rem 0; 
     display: flex;
     flex-flow: row wrap ;
     justify-content: center;
     position: relative;
-    height: 100vh;
-    width: 100%;
     background-color: rgb(172, 171, 171);
 }
 
-/* ************ CARDS **************** */
 .cards {
     position: relative;
     height: 400px;
-    width: 450px;
+    width: 350px;
 }
 .item { 
     position: absolute;
-    height: 300px;
-    width: 250px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
 }
 
 .item1 {
-    background-color: rgb(230, 230, 230);  
+    background-color: rgb(230, 230, 230); 
+    top: -30px; 
+    left: 40px
 }
 
 .item2 {
     background-color: rgb(126, 126, 126);
+    top: -30px;
+    left: 20px;
 }
 
 .item3 {
     background-color: rgb(63, 63, 63);
+    top: -30px;
+    left: 0px;
 }
 
 .toFront {
-    top: 60px;
-    left: 80px;
+    top: 40px;
+    left: 40px;
     z-index: 3;
     transition: z-index .5s, top .3s, left .3s;
 }
 
 .toMiddle {
-    top: 40px;
-    left: 60px;
+    top: 20px;
+    left: 20px;
     z-index: 2;
     transition: z-index .5s, top .3s, left .3s;
 }
 
 .toBack {
-    top: 20px;
-    left: 40px;
+    top: 0px;
+    left: 0px;
     z-index: 1;
     transition: z-index .5s, top .3s, left .3s;
 }
+/* **************  CARDS TEXT ******************* */
 
-/* ************* CONTROLS ****************** */
-.controls {
-    width: 350px;
-    text-align: center;
-    padding-bottom: 60px;
+.cards-text {
+    width: 400px; 
+    z-index: 4;  
+    padding: 50px 0 0 30px;
+}
+.cards-text p {
+    padding: 15px 0 0 30px;
+    line-height: 1.4;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-.triggerNext {
+.cards-text button {
+    padding: 20px 30px;
+    margin: 30px;
+    border: none;
+    background: rgb(73, 73, 73);
+    color: white;
+    font-size: 16px;
+
+}
+#text-wrap {
+   height: 350px;
+    position: relative;
+}
+.cards-titles {
+    position: absolute;
+}
+.textHidden {
+    opacity: 0;
+    left: 30px;
+}
+
+.textFade {
+    opacity: 1;
+    transform: translateX(0);
+    transition: .2s;
+    transition-delay: .2s;
+}
+
+
+/* ************* CONTROLS ****************** */
+
+
+/* .triggerNext {
     width: 150px;
     padding: 1rem;
     font-weight: bold;
@@ -191,28 +249,76 @@ nav a:hover:after {
     font-size: 20px;
     border-radius: 5%;
     border: none;
+} */
+
+.selectors-div {
+    margin: 10px 0 0 10px;
 }
 
-.selectors {
-    padding-top: 50px;
-   text-align: center;
+.selector-active {
+    background: rgb(82, 81, 81);
+    color: white;
+    transition: .5s;
+    
 }
 
 .select {
+    border-radius: 100%;
+    height: 50px;
     width: 50px;
+    display: inline;
+    padding: 6px 13px;
+    margin: 0 15px;
+    font-size: 18px;
+    /* font-weight: lighter; */
+}
+
+.select:hover {
+    cursor: pointer;
 }
 
 /* *************  MEDIA QUERIES  *********************** */
 
+@media screen and (max-width: 850px) {
+    .cards {
+        transform: translateX(-22px);
+    }
+    .cards-text {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 80%;
+    }
+
+    .selectors-div {
+        text-align: center;
+        padding-left: 0;
+        margin: 50px 0;
+    }
+
+    .cards-titles {
+        margin-left: 0;
+    }
+    .cards-text p {
+        padding-left: 0;
+    }
+    .cards-text button {
+        margin: 30px 0;
+    }
+}
+
+
 @media screen and (max-width: 568px) {
     /* ******************  NAVBAR  ********************** */
+    #nav-brand {
+        align-self: flex-start;
+    }
     #navbar-toggler {
         display: block;
-        align-self: flex-end;
-        margin-right: 30px;
+        align-self:flex-start;
         padding: 0 3px;
         height: 40px;
         width: 40px;
+    
     
     }
 
@@ -225,10 +331,9 @@ nav a:hover:after {
     }
 
     nav {
-        flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         height: fit-content;
-        padding: 20px 0;
+        padding: 20px 30px;
     }
 
     nav li {
@@ -238,6 +343,7 @@ nav a:hover:after {
     }
 
     nav ul {
+        padding-top: 50px;
         display: none;
     }
 
@@ -245,6 +351,9 @@ nav a:hover:after {
     #hero {
         align-items: center;
         padding-left: 0;
+        height: 700px;
+        justify-content: flex-start;
+        padding-top: 50px;
     }
     #hero-text {
         width: 90%;
@@ -263,6 +372,18 @@ nav a:hover:after {
         margin-top: 50px;
         background-color: rgb(184, 184, 184);
         border: none;
+        width: 90%;
     }
-}
 
+    #hero div {
+        width: 80vw;
+        text-align: center;
+    }
+/* ************************** CARDS  *************************** */
+    .cards {
+        height: 300px;
+        width: 250px;
+        margin-top: -270px;
+    }
+
+}
