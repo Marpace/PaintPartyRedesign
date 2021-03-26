@@ -194,31 +194,32 @@ nav a:hover:after {
     z-index: 4;  
     padding: 50px 0 0 30px;
 }
-.cards-text p {
-    padding: 15px 0 0 30px;
-    line-height: 1.4;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.cards-text button {
-    padding: 20px 30px;
-    margin: 30px;
-    border: none;
-    background: rgb(73, 73, 73);
-    color: white;
-    font-size: 16px;
-
-}
 #text-wrap {
-    overflow: hidden;
-   height: 400px;
+    height: 350px;
     position: relative;
 }
 .cards-titles {
     transform: translateX(50px);
     opacity: 0;
     position: absolute;
+}
+.cards-titles h1,
+.cards-titles h3 {
+    margin-left: -15px;
+}
+.cards-titles p {
+    padding: 30px 0 0 30px;
+    line-height: 1.4;
+    font-size: 20px;
+    font-weight: 500;
+}
+.cards-titles button {
+    padding: 20px 30px;
+    margin: 30px;
+    border: none;
+    background: rgb(73, 73, 73);
+    color: white;
+    font-size: 16px;
 }
 
 .textActive {
@@ -229,27 +230,7 @@ nav a:hover:after {
 }
 
 
-
 /* ************* CONTROLS ****************** */
-
-
-/* .triggerNext {
-    width: 150px;
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 5%;
-    border: none;
-}
-
-.triggerPrevious {
-    width: 150px;
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 5%;
-    border: none;
-} */
 
 .selectors-div {
     margin: 10px 0 0 10px;
@@ -270,10 +251,6 @@ nav a:hover:after {
     padding: 6px 13px;
     margin: 0 15px;
     font-size: 18px;
-    /* font-weight: lighter; */
-}
-
-.select:hover {
     cursor: pointer;
 }
 
@@ -288,7 +265,9 @@ nav a:hover:after {
         flex-direction: column-reverse;
         width: 80%;
     }
-
+    #text-wrap {
+        overflow: hidden;
+    }
     .selectors-div {
         text-align: center;
         padding-left: 0;
@@ -298,10 +277,14 @@ nav a:hover:after {
     .cards-titles {
         margin-left: 0;
     }
-    .cards-text p {
+    .cards-titles h1,
+    .cards-titles h3 {
+    margin-left: 0;
+}
+    .cards-titles p {
         padding-left: 0;
     }
-    .cards-text button {
+    .cards-titles button {
         margin: 30px 0;
     }
 }
@@ -380,6 +363,9 @@ nav a:hover:after {
         text-align: center;
     }
 /* ************************** CARDS  *************************** */
+    #text-wrap{
+        height: 400px;
+    }
     .cards {
         height: 300px;
         width: 250px;
