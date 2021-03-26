@@ -14,16 +14,16 @@ const rotateForward = function(){
             item.animate({
                 top: "160",
                 opacity: 0
-            }, 300, function(){
+            }, 200, function(){
                 item.css("top", "");
             });
-            item.delay(300).animate({
+            item.delay(200).animate({
                 opacity: 1
             });
             setTimeout(function(){
                 item.addClass('toBack');
                 item.removeClass('toFront');
-            }, 400);
+            }, 100);
             
         } else if (item.hasClass('toMiddle')){
             setTimeout(function(){
@@ -59,24 +59,20 @@ const rotateBackwards = function(){
             item.animate({
                 top: "160",
                 opacity: 0
-            }, 300, function(){
+            }, 200, function(){
                 item.css("top", "");
             });
-            item.delay(300).animate({
+            item.delay(200).animate({
                 opacity: 1
             });
 
             setTimeout(function(){
                 item.addClass('toFront');
             item.removeClass('toBack');
-            }, 400);
+            }, 100);
         }
     });   
 };
-
-
-
-
 
 
 const selector1 = $('#selector-1')
@@ -89,70 +85,65 @@ const cardsText1 = $('#cards-text-1');
 const cardsText2 = $('#cards-text-2');
 const cardsText3 = $('#cards-text-3');
 
-
+let animating;
 
 
 selector1.click(function(){
-    cardsText1.addClass('textFade');
-    cardsText1.removeClass('textHidden');
-    cardsText2.addClass('textHidden')
-    cardsText2.removeClass('textFade');
-    cardsText3.addClass('textHidden');
-    cardsText3.removeClass('textFade');
-    if(item1.hasClass('to`Middle')){
-        rotateForward();
-    } else if(item1.hasClass('toBack')){
-        rotateBackwards();
-    };
-    if(!selector1.hasClass('selector-active')){
+    if(!animating){
+        animating = true;
+        if(item1.hasClass('toMiddle')){
+            rotateForward();
+        } 
+        if(item1.hasClass('toBack')){
+            rotateBackwards();
+        };
+        cardsText1.addClass('textActive');
+        cardsText2.removeClass('textActive');
+        cardsText3.removeClass('textActive');
+       
         selector1.addClass('selector-active')
         selector2.removeClass('selector-active');
         selector3.removeClass('selector-active');
-    };
-    
-    
+        
+    }
+    animating = false;
 });
 selector2.click(function(){
-    cardsText2.addClass('textFade');
-    cardsText2.removeClass('textHidden')
-    cardsText3.addClass('textHidden');
-    cardsText3.removeClass('textFade');
-    cardsText1.addClass('textHidden');
-    cardsText1.removeClass('textFade');
-    if(item2.hasClass('toMiddle')){
-        rotateForward();
-    } else if(item2.hasClass('toBack')){
-        rotateBackwards();
-    };
-
-    if(!selector2.hasClass('selector-active')){
+    if(!animating){
+        if(item2.hasClass('toMiddle')){
+            rotateForward();
+        } 
+        if(item2.hasClass('toBack')){
+            rotateBackwards();
+        };
+        cardsText2.addClass('textActive');
+        cardsText1.removeClass('textActive');
+        cardsText3.removeClass('textActive');
+        
         selector2.addClass('selector-active')
         selector1.removeClass('selector-active');
         selector3.removeClass('selector-active');
-    };
-    
+    }   
+    animating = false;
 });
 selector3.click(function(){
-    cardsText3.addClass('textFade');
-    cardsText3.removeClass('textHidden')
-    cardsText2.addClass('textHidden');
-    cardsText2.removeClass('textFade');
-    cardsText1.addClass('textHidden');
-    cardsText1.removeClass('textFade');
-    if(item3.hasClass('toMiddle')){
-        rotateForward();
-    } else if(item3.hasClass('toBack')){
-        rotateBackwards();
-    };
-
-    if(!selector3.hasClass('selector-active')){
+    if(!animating){
+        if(item3.hasClass('toMiddle')){
+            rotateForward();
+        } 
+        if(item3.hasClass('toBack')){
+            rotateBackwards();
+        };
+        cardsText3.addClass('textActive');
+        cardsText2.removeClass('textActive');
+        cardsText1.removeClass('textActive');
+    
         selector3.addClass('selector-active')
         selector2.removeClass('selector-active');
         selector1.removeClass('selector-active');
-    };
-   
+    }
+    animating = false;
 });
-
 
 
 const cardsOptions = {
