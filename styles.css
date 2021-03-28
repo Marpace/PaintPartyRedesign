@@ -306,15 +306,6 @@ nav a:hover:after {
    font-size: 17px;
    margin-bottom: 10px;
 }
-.item-active {
-
-}
-.item-next {
-   left: 600px;
-}
-.item-previous {
-
-}
 #car-indicator {
     height: 4px;
     background: grey;
@@ -333,6 +324,7 @@ nav a:hover:after {
 .button-next i,
 .button-previous i {
     font-size: 30px;
+    cursor: pointer;
 }
 
 
