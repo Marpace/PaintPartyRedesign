@@ -187,3 +187,56 @@ toggler.click(() => {
     navList.slideToggle();
     // navList.css("display", "block");
 });
+const carousel = document.querySelector('#carousel-body');
+const carouselItems = document.querySelectorAll('.test-car-item');
+
+const nextButton = document.querySelector('.button-next');
+const prevButton = document.querySelector('.button-previous');
+
+let counter = 1;
+const size = carouselItems[0].clientWidth + 45;
+
+carousel.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+const indicator = document.querySelector('#indicator-light');
+
+const moveLight = function(){
+    indicator.style.transition = '.4s'
+    if(counter === 1 || counter === 4){
+        indicator.style.transform = 'translateX(0)'
+    }
+    if(counter === 2){
+        indicator.style.transform = 'translateX(100%)'
+    }
+    if(counter === 0 || counter === 3){
+        indicator.style.transform = 'translateX(203%)'
+    }
+};
+
+nextButton.addEventListener('click', ()=>{
+    if(counter >= carouselItems.length -1) return;
+    carousel.style.transition = 'transform .7s ease-in-out';
+    counter++;
+    carousel.style.transform = 'translateX(' + (-size * counter) + "px)";
+    moveLight();
+});
+
+prevButton.addEventListener('click', ()=>{
+    if(counter <= 0) return;
+    carousel.style.transition = 'transform .7s ease-in-out';
+    counter--;
+    carousel.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    moveLight();
+});
+
+carousel.addEventListener('transitionend', ()=>{
+    if(counter === 0){
+        carousel.style.transition = 'none';
+        counter = carouselItems.length -2;
+        carousel.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    } else if (counter === carouselItems.length -1){
+        carousel.style.transition = 'none';
+        counter = 1;
+        carousel.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+});
