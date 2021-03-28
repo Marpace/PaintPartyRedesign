@@ -326,7 +326,56 @@ nav a:hover:after {
     font-size: 30px;
     cursor: pointer;
 }
+/* ************************  FOOTER  ************************ */
 
+#footer {
+    height: fit-content;
+    padding: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    background: rgb(0, 0, 0);
+    justify-content: space-around;
+}
+#footer h1,
+#footer p{
+    color: rgb(204, 204, 204);
+    margin: 10px;
+}
+#footer p {
+    font-size: 15px;
+}
+#logo {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background: rgb(93, 133, 139);
+}
+#footer-div-1 {
+    flex-basis: 10%;
+}
+#footer-div-2 {
+    flex-basis: 20%;
+}
+.icon {
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    background: rgb(121, 121, 121);
+    display: inline-block;
+    margin-right: 10px;
+}
+.contact-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#footer-div-4 div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 10px;
+    background: rgb(184, 211, 211);
+}
 
 /* *************  MEDIA QUERIES  *********************** */
 
@@ -458,5 +507,12 @@ nav a:hover:after {
     .test-car-item {
         min-width: 75%;
     }
-
+    /* **************************  FOOTER  *************************** */
+    #footer {
+        height: 340px;
+        flex-flow: column wrap;
+    }
+    #footer-div-4 {
+        height: 100%;
+    }
 }
