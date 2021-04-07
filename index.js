@@ -1,5 +1,4 @@
 
-
 const item1 = $('.item1');
 const item2 = $('.item2');
 const item3 = $('.item3');
@@ -146,6 +145,7 @@ selector3.click(function(){
 });
 
 
+
 const cardsOptions = {
     rootMargin: "0px",
     threshold: .6
@@ -180,13 +180,73 @@ const observer = new IntersectionObserver(cardsCallback, cardsOptions);
 observer.observe(cardsTarget);
 
 
-const toggler = $('#navbar-toggler');
-const navList = $('nav ul');
+// const toggler = $('#navbar-toggler');
+// const navList = $('nav ul');
 
-toggler.click(() => {
-    navList.slideToggle();
-    // navList.css("display", "block");
-});
+// const navLinks = document.querySelectorAll('li');
+// const div1 = $('#toggler-div-1');
+// const div2 = $('#toggler-div-2');
+// const div3 = $('#toggler-div-3');
+// toggler.click(() => {
+//     navList.slideToggle();
+// });
+
+const toggler = document.querySelector('#navbar-toggler');
+const div1 = document.querySelector('#toggler-div-1');
+const div2 = document.querySelector('#toggler-div-2');
+const div3 = document.querySelector('#toggler-div-3');
+const smallNav = document.querySelector('#small-nav');
+
+const animateToggler = function(element){
+    element.style.top = "15px"
+    element.style.width = "70%"
+    element.style.transition = ".1s"
+}
+const animateX = function(element){
+    element.style.top = ""
+    element.style.width = ""
+    element.style.transition = ""
+}
+toggler.addEventListener('click', function(){
+    if(getComputedStyle(div2).opacity === "1"){
+        animateToggler(div1);
+        animateToggler(div3);
+        div2.style.opacity = "0"
+        setTimeout(function(){
+            div1.style.transform = "rotate(45deg)";
+            div3.style.transform = "rotate(-45deg)";
+        }, 100);
+
+        smallNav.style.height = "170px";
+
+    } else {
+        div1.style.transform = "";
+        div3.style.transform = "";
+        
+        setTimeout(() => {
+           animateX(div1);
+           animateX(div3) 
+           div2.style.opacity = "1"
+        }, 100);
+        smallNav.style.height = "0";
+    }
+})
+
+
+const navLinks = document.querySelectorAll('nav li');
+navLinks.forEach(item => {
+    item.addEventListener('mouseover', ()=> {
+        item.lastChild.style.transition = '.2s'
+        item.lastChild.style.left = '100%'
+    });
+    item.addEventListener('mouseout', ()=> {
+        item.lastChild.style.transition = '.2s'
+        item.lastChild.style.left = '5px'
+    });
+})
+
+
+
 const carousel = document.querySelector('#carousel-body');
 const carouselItems = document.querySelectorAll('.test-car-item');
 
@@ -240,3 +300,5 @@ carousel.addEventListener('transitionend', ()=>{
         carousel.style.transform = 'translateX(' + (-size * counter) + 'px)';
     }
 });
+
+
