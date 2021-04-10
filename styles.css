@@ -1,3 +1,5 @@
+
+
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -9,7 +11,7 @@ body {
 /* *****************  ALERT  ************************** */
 #alert{
     height: 50px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-color: rgb(214, 40, 40);
@@ -32,17 +34,19 @@ body {
 /* *************** NAVBAR **************************** */
 
 #nav-brand {
-
-    height: 45px;
-    width: 45px;
-    margin: 1rem 0;
-    border-radius: 100%;
-    background-image: url('logo.jpg');
-    background-size: cover;
+    width: 180px;    
+}
+#nav-brand img {
+    width: 100%;
 }
 
 #navbar-toggler {
     display: none;
+}
+
+.nav-wrap {
+    background-color: #A9E7E2;
+    padding: 0 8%;
 }
 
 nav {
@@ -51,10 +55,15 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding:0 5rem 0 5rem;
     height: fit-content;
     font-size: 1rem;
-    background-color: #A9E7E2;
+    border-bottom: 1px solid #240953;
+}
+
+#nav-hr {
+    width: 70%;
+    border: 1px solid #240953;
+    margin: auto;
 }
 
 nav li {
@@ -65,8 +74,9 @@ nav li {
 nav a {
     text-decoration: none;
     color: #240953;
-    margin: 0 10px;
+    margin: 0 20px;
     position: relative;
+    font-size: 1.1rem;
 }
 .underline {
     position: absolute;
@@ -118,34 +128,32 @@ nav a:hover:after {
 
 /* ***************  HERO  *************************** */
 
-
-#curved {
-    background: #A9E7E2;
-    position: relative;
-    margin-top: -2px;
+#hero {
+    background-image: url('purple.svg');
+    background-size: cover;
+    height: 70vh;
+    margin-top: -3px;
+    
 }
 
-#wave {
-    position: relative;
-    margin-top: -2px;
+#hero-wrap {
+    background-image: url('blue.svg');
+    background-size: cover;
+    height: 97%;
+}
+
+#hero-container {
     display: flex;
-    width: 100%;
-    height: 70px;
-    background-image: url('waves.svg');
-    background-size: 140% 50px;
-    background-repeat: no-repeat;
-  
+    flex-direction: row;
+    padding: 5rem 8%;
 }
 
-.hero-text {
-    padding: 5rem 5rem 50px;
 
-}
 #title {
     transform: rotate(-2deg);
 }
 .hero-text h1{
-    width: 60%;
+    width: 100%;
     font-family: 'Dela Gothic One', cursive;
     font-size: 3rem;
     line-height: 1.4;
@@ -154,15 +162,16 @@ nav a:hover:after {
 }    
 
 .hero-text p {
-    width: 40%;
+    width: 70%;
     margin-top: 1rem;
     line-height: 1.5;
     font-size: 21px;
+    color: #240953;
 }
 
 #hero button{
     height: 50px;
-    margin: 0 5rem  20px;
+    margin: 20px 0;
     padding: 15px 20px;
     font-size: 15px;
     font-weight: bolder;
@@ -170,25 +179,56 @@ nav a:hover:after {
     border: none;
     border-radius: 50px;
     color: white;
-    z-index: 1000;
 }
 
 #title-image {
-    width: 34%;
-    position: absolute;
-    right: 50px;
-    bottom: -40px;
-    overflow: hidden;
+    /* display: flex; */
+    min-width: 30vw;
+    transform: translate(-70px, -20px);
+
 }
 
-#title-image img {
-    width: 100%;
+#paintTube {
+    width: 75%;
+}
+
+#paintbrush {
+    width: 20%;
 }
 #small-image {
     display: none;
 }
 
- 
+ /* ***********************  ACCORDION  ********************** */
+
+#accordion {
+    padding: 180px 20px;
+}
+
+#accordion-title {
+    text-align: center;
+}
+
+
+#accordion-title img {
+    width: 70px;
+    height: 40px;
+    object-fit: cover;
+    margin-bottom: -15px;
+}
+
+#accordion-title h1 {
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #5B28B5;
+    transform: rotate(1.24deg);
+
+}
+
+
+
+
 
 /* **************  CARDS SECTION ************************ */
 
@@ -363,15 +403,11 @@ nav a:hover:after {
    font-size: 17px;
    margin-bottom: 10px;
 }
-.item-active {
 
-}
 .item-next {
    left: 600px;
 }
-.item-previous {
 
-}
 #car-indicator {
     height: 4px;
     background: grey;
@@ -445,19 +481,15 @@ nav a:hover:after {
 /* *************  MEDIA QUERIES  *********************** */
 
 @media screen and (max-width: 850px) {
+
+    /* **********************  NAV  ******************* */
+
+
     /* *******************  HERO  ****************** */
       
     #title-image {
-        bottom: -30px;
-        right: 0;
-        width: 50vw;
-    }
-
-    #title-image img {
-        width: 100%;
-    }
-    .hero-text p {
-        width: 50%;
+        min-width: 35vw;
+        transform: translateY(50px);
     }
 
 
@@ -557,37 +589,46 @@ nav a:hover:after {
     }
 
     /* ******************  HERO  **************************** */
+
+   
+
+    #hero-container {
+        padding: 0;
+        flex-direction: column;
+    }
     .hero-text {
-        padding: 2rem;
+        text-align: center;
+        padding: 2rem 8%  0;
     }
     #title{
         transform: rotate(0);
-        /* text-align: center; */
     }
     .hero-text p {
         width: 90%;
-    }
-
-    #wave {
-        justify-content: center;
-        align-items: center;
+        margin: auto;
     }
     #hero button{
         width: 70%;
     }
     #title-image {
-        display: none;
-    }
-
-    #small-image {
-        display: block;
-        width: 70%;
+        width: 100vw;
+        height: 50vh;
         overflow: hidden;
-        margin: auto;
+        transform: translate(0);
+    }
+    #paintTube {
+        position: absolute;
+        transform: rotate(-115deg);
+        left: 150px;
+        top: -110px;
+        width: 50%;
     }
 
-    #small-image img {
-        width: 100%;
+    #paintbrush {
+        position: absolute;
+        transform: rotate(97deg);
+        top: 130px;
+        width: 15%;
     }
    
 /* ************************** CARDS  *************************** */
